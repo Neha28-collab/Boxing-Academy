@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+        <link rel="icon" type="image/x-icon" href="logo.png">
+        <link rel="stylesheet" href="registrationform.css" type="text/css">
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <script src="registrationform.js"></script>
+    </head>
+
+    <body>
+   
+            <div class="overlay">
+    <div class="main">
+        <div class="register" data-aos="fade-up">
+            <h2>Register Here!</h2>
+            <form id="register" action="registration.php" method="POST" onsubmit="return validateForm();">
+                <label>First Name : </label><br>
+                <input type="text" name="fname" id="name" placeholder="Enter Your First Name" required><br><br>
+
+                <label>Last Name : </label><br>
+                <input type="text" name="lname" id="name" placeholder="Enter Your Last Name" required><br><br>
+
+                <label>Age : </label><br>
+                <input type="number" name="age" id="name" placeholder="Enter Your Age" required><br><br>
+
+                <label>Email : </label><br>
+                <input type="email" name="email" id="name" placeholder="example: justin1768@gmail.com" required><br><br>
+
+                <label>Contact Number : </label><br>
+                <input type="number" name="number" id="name" placeholder="Enter Your Contact Number" required><br><br>
+
+                <label>Gender :</label><br>
+                <input type="radio" name="gender" id="male" value="m" required>
+                <label for="male">Male</label>
+                &nbsp; &nbsp;
+                <input type="radio" name="gender" id="female" value="f" required>
+                <label for="female">Female</label>
+                &nbsp; &nbsp;
+                <input type="radio" name="gender" id="other" value="o" required>
+                <label for="other">Other</label><br><br>
+
+                <label>Address</label><br>
+                <textarea id="address" name="address" placeholder="Enter Your Address"  required></textarea><br><br>
+
+
+                <label>Accept <a href="#termsModal" id="openTermsModal">Terms and Conditions</a></label>
+                <input type="checkbox" id="termsCheckbox" name="termsCheckbox" required>
+
+                <div class="alert"></div>
+
+                <button type="button" id="backButton">Back</button>
+
+                <button type="submit" id="submitButton">Submit</button>
+                
+
+            </form>
+            <div id="message" style="display: none;">You are registered!</div>
+                </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Terms and Conditions</h2>
+            <div class="scrollable-terms">
+                <p style="color: rgb(0, 0, 0);"><b>Rules and Regulations</b></p>
+                    <p style="color: rgb(0, 0, 0);">All members of the Training Session, including coaches, staff, and fellow members, should be treated with respect at all times. Any disrespectful behaviour or language will not be tolerated.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>Safety First:</b> Safety is of the utmost importance in boxing. All members must follow safety guidelines and rules during training and sparring to prevent injury.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>No Bullying:</b> Any form of bullying, harassment, or discrimination will not be tolerated in the Training Session. Members must treat each other with kindness and respect.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>Attire:</b> Boxers must wear appropriate attire, such as boxing gloves, mouth guard, headgear, and protective cup. Clothing must be clean and free from any offensive symbols or language.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>Discipline:</b> Boxing requires discipline, and all members are expected to demonstrate discipline in their training and personal conduct. Failure to comply with rules or instructions may result in disciplinary action.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>Punctuality:</b> Members are expected to be on time for all training sessions, classes, and events. Latecomers may be denied entry to the session.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>Cleanliness:</b> Members are responsible for keeping the boxing hall clean and tidy. All equipment must be put back in its place after use, and members must dispose of any trash properly.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>Personal Hygiene:</b> Members must maintain good personal hygiene by wearing clean clothing and using deodorant. Anyone who fails to adhere to basic hygiene standards may be asked to leave.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>Sportsmanship:</b> Boxers are expected to display good sportsmanship at all times, both in and out of the ring, and to respect their opponents, coaches, and officials.</p>
+                    <p style="color: rgb(0, 0, 0);"><b>No Doping:</b> The use of drugs or alcohol is strictly prohibited in the Training Session. Any member found using or possessing drugs or alcohol will be asked to leave the Training Session.</p><br><br>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+document.getElementById("backButton").addEventListener("click", function() {
+            window.location.href = "mainpage.html";
+        });
+
+
+
+        document.getElementById("submitButton").addEventListener("click", function() {
+            window.location.href = "thankyoupage.html";
+        });
+
+
+        // JavaScript code for modal behavior
+const openTermsModal = document.getElementById("openTermsModal");
+const termsModal = document.getElementById("termsModal");
+const closeModal = document.querySelector(".close");
+
+openTermsModal.addEventListener("click", () => {
+    termsModal.style.display = "block";
+});
+
+closeModal.addEventListener("click", () => {
+    termsModal.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === termsModal) {
+        termsModal.style.display = "none";
+    }
+});
+
+// JavaScript code for form validation
+function validateForm() {
+    const termsCheckbox = document.getElementById("termsCheckbox");
+    if (!termsCheckbox.checked) {
+        alert("Please accept the terms and conditions.");
+        return false;
+    }
+    return true;
+}
+
+    </script>
+</body>
+</html>
